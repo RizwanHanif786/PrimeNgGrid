@@ -1,0 +1,28 @@
+  <div class="margin-bottom">
+  <input  type="text" [(ngModel)]="templateName" pInputText class="p-inputtext-sm "  placeholder="Enter Template Name">         
+  <button pButton label="Save Template" class="p-mr-2" title="Save List view Templates" (click)="SaveTemplate()"></button>
+</div>
+
+  <p-pickList [source]="availableFields" [target]="visibleFields" sourceHeader="Available Fields" targetHeader="Visible Fields" [dragdrop]='true'
+    [responsive]="true" [sourceStyle]="{'height':'300px'}" [targetStyle]="{'height':'300px'}" filterBy="headerName"
+    sourceFilterPlaceholder="Search by name" targetFilterPlaceholder="Search by name">
+    <ng-template let-product pTemplate="item">
+        <div class="product-item">
+            <div class="product-list-detail">
+                <h5 class="p-mb-2">{{product.headerName}}</h5>
+            </div>
+        </div>
+    </ng-template>
+</p-pickList>
+
+<div class="p-dialog-footer footer " style="margin-top: 21px !important;margin-right: 36px !important;">
+  <button pButton type="button" label="Cancel" (click)="decline()" class="p-mr-3"></button>
+  <button pButton label="Save" title="Save Current List view Settings"  (click)="Save()"></button>
+</div>
+
+      
+  
+  
+
+
+ 

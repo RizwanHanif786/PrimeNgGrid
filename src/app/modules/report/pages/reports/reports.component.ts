@@ -101,7 +101,7 @@ export class ReportsComponent implements OnInit {
   }
 
   getRowsData() {
-    this.reportDataService.getProducts().then((data) => (this.products = data));
+    this.reportDataService.getProducts().then((data:any) => (this.products = data));
   }
 
   onViewChange(list: any) {
@@ -174,6 +174,7 @@ export class ReportsComponent implements OnInit {
       this.columnTemplates = savedCOlumnTemplates;
     }
   }
+
   saveProduct() {
     this.submitted = true;
 
@@ -216,6 +217,10 @@ export class ReportsComponent implements OnInit {
     return index;
   }
 
+  /**
+   * genreates random id 
+   * @returns id 
+   */
   createId(): string {
     let id = '';
     var chars =

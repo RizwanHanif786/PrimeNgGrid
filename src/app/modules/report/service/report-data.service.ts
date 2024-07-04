@@ -39,6 +39,7 @@ export class ReportDataService {
         "Yellow Earbuds",
         "Yoga Mat",
         "Yoga Set",
+        "Blue Tshirt"
     ];
 
     constructor(private http: HttpClient) { }
@@ -76,7 +77,7 @@ export class ReportDataService {
             rating: this.generateRating()
         };
 
-        product.image = product.name!.toLocaleLowerCase().split(/[ ,]+/).join('-')+".jpg";;
+        product.image = product.name!.toLocaleLowerCase().split(/[ ,]+/).join('-')+".jpg";
         return product;
     }
 

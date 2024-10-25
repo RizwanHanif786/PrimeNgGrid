@@ -53,6 +53,7 @@ describe("New Receiving Number Feature", () => {
         cy.get('[data-cy="create-new-receiving-number-button"]').should("be.visible").click();
         cy.wait("@addNewReceivingNumber").then((interception: any) => {
             if (interception.request.body) {
+                console.log('interception: ', interception);
                 const payload = interception.request.body;
                 expect(payload.customerId).to.exist;
                 expect(payload.total_calls).to.exist;

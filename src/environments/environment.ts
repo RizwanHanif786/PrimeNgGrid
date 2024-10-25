@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  cypress: {
+    username: 'tbennett@atsco.tax',
+    // username: 'sadmin',
+    // password: 'L3tMe.In'
+    password: 'Temp@o24!!'
+    // password: 'Temp@o22!!'
+  }
 };
 
 /*

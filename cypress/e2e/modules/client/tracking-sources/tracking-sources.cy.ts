@@ -204,4 +204,13 @@ describe("Tracking Sources Feature", () => {
             cy.url().should('include', '/service/tracking-source/add');
         });
     });
+    it('should click New Tracking Source button and navigate to   New Tracking Source screen', () => {
+        cy.wait("@refreshedTrackingSources").then(() => {
+            cy.get('[data-cy="tracking-sources-add-new-button"]').should('be.visible').click();
+            cy.wait(3000);
+            cy.url().should('include', '/service/tracking-source/add');
+        });
+    });
 });
+
+

@@ -210,6 +210,13 @@ describe('Tracking Numbers Feature', () => {
       cy.url().should('include', '/service/tracking-number/add');
     });
   });
+  it('should click New Tracking Number button and navigate to  add tracking Number screen', () => {
+    cy.wait("@refreshedTrackingNumbers").then(() => {
+      cy.get('[data-cy="tracking-numbers-add-new-button"]').should('be.visible').click();
+      cy.wait(3000);
+      cy.url().should('include', '/service/tracking-number/add');
+    });
+  });
 
 
 

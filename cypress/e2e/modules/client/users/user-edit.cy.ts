@@ -71,9 +71,7 @@ describe("Edit User Feature", () => {
                             expect(response?.languagesId).to.eq(1);
                             expect(response?.id).to.exist;
                         }
-
-                    }
-                    
+                    }                    
                 });
 
             }

@@ -134,7 +134,7 @@ export class ReportsComponent implements OnInit {
           severity: 'success',
           summary: 'Successful',
           detail: 'Products Deleted',
-          life: 3000,
+          life: 4000,
         });
       },
     });
@@ -157,7 +157,7 @@ export class ReportsComponent implements OnInit {
           severity: 'success',
           summary: 'Successful',
           detail: 'Product Deleted',
-          life: 3000,
+          life: 4000,
         });
       },
     });
@@ -195,7 +195,7 @@ export class ReportsComponent implements OnInit {
           severity: 'success',
           summary: 'Successful',
           detail: 'Product Created',
-          life: 3000,
+          life: 4000,
         });
       }
 

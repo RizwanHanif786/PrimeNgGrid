@@ -79,7 +79,7 @@ export class ViewReportListSettingsPopupComponent implements OnInit {
       this.visibleFields = settings;
       this.visibleFields.forEach((item) => [
         (this.availableFields = this.availableFields.filter(
-          (x) => item.field !== x.field
+          (x:any) => item.field !== x.field
         )),
       ]);
     }
@@ -112,8 +112,6 @@ export class ViewReportListSettingsPopupComponent implements OnInit {
   }
 
   SaveTemplate() {
-
-    console.log(this.visibleFields, 'this.visibleFields')
     if(this.templateName) {
       const template = {
         templateName: this.templateName,

@@ -24,7 +24,7 @@ export class ViewReportChartComponent implements OnInit {
   }
 
   getRowsData() {
-    this.reportDataService.getProducts().then((data) => {
+    this.reportDataService.getProducts().then((data:any) => {
       this.rowData = data
       this.basicData = {
         labels: this.rowData.map((item:any) => item.name),

@@ -75,7 +75,6 @@ export class ViewReportListSettingsPopupComponent implements OnInit {
       },
     ];
     let settings = JSON.parse(localStorage.getItem('columnSettings') as any);
-    console.log('settings: ', settings);
     if (settings?.length) {
       this.visibleFields = settings;
       this.visibleFields.forEach((item) => [
@@ -122,9 +121,9 @@ export class ViewReportListSettingsPopupComponent implements OnInit {
       localStorage.setItem('ColumnTemplates', JSON.stringify( this.columnTemplates));
       this.dialogRef?.close({colTemplates:this.columnTemplates});
 
-    }else{
+    } else{
       alert('Please enter Template Name')
-    }
+    };
   
 
   }

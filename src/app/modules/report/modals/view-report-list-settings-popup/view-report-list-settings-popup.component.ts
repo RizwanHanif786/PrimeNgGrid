@@ -97,6 +97,7 @@ export class ViewReportListSettingsPopupComponent implements OnInit {
    * closes confimation model && return true
    */
   Save(colTemplates?: any) {
+    console.log('colTemplates: ', colTemplates);
     if (!this.visibleFields?.length) {
       this.visibleFields = this.availableFields;
     }

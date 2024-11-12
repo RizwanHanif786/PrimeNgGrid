@@ -1,6 +1,6 @@
   <div class="margin-bottom">
   <input  type="text" [(ngModel)]="templateName" pInputText class="p-inputtext-sm "  placeholder="Enter Template Name">         
-  <button pButton label="Save Template" class="p-mr-2" title="Save List view Templates" (click)="SaveTemplate()"></button>
+  <button pButton label="Save Templates" class="p-mr-2" title="Save List view Templates" (click)="SaveTemplate()"></button>
 </div>
 
   <p-pickList [source]="availableFields" [target]="visibleFields" sourceHeader="Available Fields" targetHeader="Visible Fields" [dragdrop]='true'

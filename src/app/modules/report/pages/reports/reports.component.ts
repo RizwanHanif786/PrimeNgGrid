@@ -1,8 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
-import { Observable } from 'rxjs';
 import { ViewReportListSettingsPopupComponent } from '../../modals/view-report-list-settings-popup/view-report-list-settings-popup.component';
 import { Product } from '../../models/products.model';
 import { ReportDataService } from '../../service/report-data.service';
@@ -20,16 +18,12 @@ export class ReportsComponent implements OnInit {
   columnTemplates: any[] = [];
   selectedTemplate: any;
   productDialog: boolean = false;
-
   products: Product[] = [];
-
   product: Product = new Product();
-
   selectedProducts: Product[] = [];
-
   exportColumns: any[] = [];
-
   submitted: boolean = false;
+  reportData: any;
 
   constructor(
     private reportDataService: ReportDataService,
@@ -289,11 +283,14 @@ export class ReportsComponent implements OnInit {
     );
 
     dialogRef.onClose.subscribe((data) => {
+      if(data) {
+        console.log('data: ', data);
+        this.reportData = data;
+
+      }
    
     });
   }
-
-
 
   applyFilterGlobal($event:any, stringVal:any) {
     this.dt!.filterGlobal(($event.target as HTMLInputElement).value, stringVal);

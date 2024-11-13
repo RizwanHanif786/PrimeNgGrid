@@ -37,9 +37,9 @@
                 <th style="width: 3rem">
                     <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                 </th>
-                <th *ngFor="let column of columnDefs" pSortableColumn="{{column.field}}">{{column.headerName}}
-                 <p-sortIcon field="{{column.field}}"></p-sortIcon>
-                 <p-columnFilter type="{{column.type}}" field="{{column.field}}" display="menu"></p-columnFilter>
+                <th *ngFor="let column of columnDefs" [pSortableColumn]="column?.field">{{column?.headerName}}
+                 <p-sortIcon [field]="column?.field"></p-sortIcon>
+                 <p-columnFilter [type]="column?.type" [field]="column?.field" display="menu"></p-columnFilter>
                  </th>
                 <th>Actions</th>
             </tr>
@@ -50,7 +50,7 @@
                     <p-tableCheckbox [value]="product"></p-tableCheckbox>
                 </td>
                 <td *ngFor="let col of columns">
-                  {{rowData[col.field]}}
+                  {{rowData[col?.field]}}
                 </td>
                 <td>
                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editProduct(product)"></button>
@@ -60,7 +60,7 @@
         </ng-template>
         <ng-template pTemplate="summary">
             <div class="p-d-flex p-ai-center p-jc-between">
-                In total there are {{products ? products.length : 0 }} products.
+                Total {{products ? products.length : 0 }} products.
             </div>
         </ng-template>
     </p-table>

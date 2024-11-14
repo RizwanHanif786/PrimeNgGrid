@@ -25,6 +25,7 @@ export class ViewReportChartComponent implements OnInit {
 
   getRowsData() {
     this.reportDataService.getProducts().then((data:any) => {
+        console.log('data: ', data);
       this.rowData = data
       this.basicData = {
         labels: this.rowData.map((item:any) => item.name),
@@ -37,7 +38,7 @@ export class ViewReportChartComponent implements OnInit {
             {
                 label: 'Quantity',
                 backgroundColor: '#FFA726',
-                data:this.rowData.map((item:any) => item.quantity)
+                data: this.rowData.map((item:any) => item.quantity)
             }
         ]
     };

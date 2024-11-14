@@ -99,6 +99,7 @@ export class ViewReportListSettingsPopupComponent implements OnInit {
   Save(colTemplates?: any) {
     console.log('colTemplates: ', colTemplates);
     if (!this.visibleFields?.length) {
+      console.log('this.visibleFields?.length: ', this.visibleFields?.length);
       this.visibleFields = this.availableFields;
     }
     localStorage.setItem('columnSettings', JSON.stringify(this.visibleFields));
@@ -114,19 +115,15 @@ export class ViewReportListSettingsPopupComponent implements OnInit {
 
   SaveTemplate() {
     if(this.templateName) {
-      const template = {
-        templateName: this.templateName,
-        columnTemplates: this.visibleFields
-      }
-      this.columnTemplates.push(template)
-      localStorage.setItem('ColumnTemplates', JSON.stringify( this.columnTemplates));
-      this.dialogRef?.close({colTemplates:this.columnTemplates});
-
-    } else{
-      alert('Please enter Template Name')
-    };
-  
-
+      alert('Please enter Template Name');
+    }
+    const template = {
+      templateName: this.templateName,
+      columnTemplates: this.visibleFields
+    }
+    this.columnTemplates.push(template)
+    localStorage.setItem('ColumnTemplates', JSON.stringify( this.columnTemplates));
+    this.dialogRef?.close({colTemplates:this.columnTemplates});
   }
 
 }

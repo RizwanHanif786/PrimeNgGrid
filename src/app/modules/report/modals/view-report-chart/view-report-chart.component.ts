@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ReportDataService } from '../../service/report-data.service';
+import { Product } from '../../models/products.model';
 
 @Component({
   selector: 'app-view-report-chart',
@@ -12,33 +13,33 @@ export class ViewReportChartComponent implements OnInit {
   basicOptions!: { plugins: { legend: { labels: { color: string; }; }; }; scales: { x: { ticks: { color: string; }; grid: { color: string; }; }; y: { ticks: { color: string; }; grid: { color: string; }; }; }; };
   basicData!: { labels: string[]; datasets: { label: string; backgroundColor: string; data: number[]; }[]; };
  
- ngOnInit(): void {
+ 
+  constructor(public dialogRef: DynamicDialogRef, 
+    private reportDataService: ReportDataService, 
+    public config: DynamicDialogConfig) {
+    this.applyLightTheme()   
+ 
+  }
+
+  ngOnInit(): void {
+    this.getRowsData();
   }
   
-  constructor(public dialogRef: DynamicDialogRef, private reportDataService: ReportDataService, public config: DynamicDialogConfig) {
-    this.applyLightTheme()
-    this.getRowsData();
-    
-
-   
-  }
-
   getRowsData() {
-    this.reportDataService.getProducts().then((data:any) => {
-        console.log('data: ', data);
+    this.reportDataService.getProducts().then((data:Product[]) => {
       this.rowData = data
       this.basicData = {
-        labels: this.rowData.map((item:any) => item.name),
+        labels: this.rowData.map((product:Product) => product.name),
         datasets: [
             {
                 label: 'Price',
                 backgroundColor: '#42A5F5',
-                data: this.rowData.map((item:any) => item.price)
+                data: this.rowData.map((product:Product) => product.price)
             },
             {
                 label: 'Quantity',
                 backgroundColor: '#FFA726',
-                data: this.rowData.map((item:any) => item.quantity)
+                data: this.rowData.map((product:Product) => product.quantity)
             }
         ]
     };

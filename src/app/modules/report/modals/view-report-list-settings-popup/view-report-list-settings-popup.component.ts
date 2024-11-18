@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
-import {
-  CdkDragDrop,
-  moveItemInArray,
-  transferArrayItem,
-} from '@angular/cdk/drag-drop';
 
-import { PickList } from 'primeng/picklist';
-
+export interface Fields {
+  headerName: string;
+  field: string
+  type:string
+}
 @Component({
   selector: 'app-view-report-list-settings-popup',
   templateUrl: './view-report-list-settings-popup.component.html',
@@ -79,7 +77,7 @@ export class ViewReportListSettingsPopupComponent implements OnInit {
       this.visibleFields = settings;
       this.visibleFields.forEach((item) => [
         (this.availableFields = this.availableFields.filter(
-          (x:any) => item.field !== x.field
+          (field:Fields) => field.field !== field.field
         )),
       ]);
     }
@@ -97,9 +95,7 @@ export class ViewReportListSettingsPopupComponent implements OnInit {
    * closes confimation model && return true
    */
   Save(colTemplates?: any) {
-    console.log('colTemplates: ', colTemplates);
     if (!this.visibleFields?.length) {
-      console.log('this.visibleFields?.length: ', this.visibleFields?.length);
       this.visibleFields = this.availableFields;
     }
     localStorage.setItem('columnSettings', JSON.stringify(this.visibleFields));

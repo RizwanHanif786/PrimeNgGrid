@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { Fields } from '../../models/fields.model';
 
-export interface Fields {
-  headerName: string;
-  field: string
-  type:string
-}
+
 @Component({
   selector: 'app-view-report-list-settings-popup',
   templateUrl: './view-report-list-settings-popup.component.html',

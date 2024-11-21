@@ -27,7 +27,6 @@ export class ViewReportChartComponent implements OnInit {
   
   getRowsData() {
     this.reportDataService.getProducts().then((data:Product[]) => {
-      console.log('data: ', data);
       if(data) {
       this.rowData = data
       this.basicData = {

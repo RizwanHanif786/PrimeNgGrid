@@ -37,7 +37,7 @@
                 <th style="width: 3rem">
                     <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                 </th>
-                <th *ngFor="let column of columnDefs" [pSortableColumn]="column?.field">{{column?.headerName}}
+                <th *ngFor="let column of columnDefs" [pSortableColumn]="column?.field">  {{column?.headerName}}
                  <p-sortIcon [field]="column?.field"></p-sortIcon>
                  <p-columnFilter [type]="column?.type" [field]="column?.field" display="menu"></p-columnFilter>
                  </th>

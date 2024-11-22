@@ -16,8 +16,7 @@ export class ViewReportListSettingsPopupComponent implements OnInit {
   public templateName: string = '';
   public isRefreshed: boolean;
 
-  sourceFilterValue: string = '';
-    
+  sourceFilterValue: string = '';    
   targetFilterValue: string = '';
   constructor(
     public dialogRef: DynamicDialogRef,
@@ -83,6 +82,7 @@ export class ViewReportListSettingsPopupComponent implements OnInit {
   getColumnTemplates() {
     let savedColumnTemplates = JSON.parse(localStorage.getItem('ColumnTemplates') as any) || [];
     if(savedColumnTemplates) {
+      console.log('savedColumnTemplates: ', savedColumnTemplates);
       this.columnTemplates = savedColumnTemplates;
     }
     
@@ -95,6 +95,7 @@ export class ViewReportListSettingsPopupComponent implements OnInit {
   Save(colTemplates?: any) {
     if (!this.visibleFields?.length) {
       this.visibleFields = this.availableFields;
+      console.log('this.visibleFields: ', this.visibleFields);
     }
     localStorage.setItem('columnSettings', JSON.stringify(this.visibleFields));
     this.dialogRef?.close({visibleFields: this.visibleFields, colTemplates});
@@ -116,6 +117,7 @@ export class ViewReportListSettingsPopupComponent implements OnInit {
       columnTemplates: this.visibleFields
     }
     this.columnTemplates.push(template)
+    console.log('columnTemplates: ', this.columnTemplates);
     localStorage.setItem('ColumnTemplates', JSON.stringify( this.columnTemplates));
     this.dialogRef?.close({colTemplates:this.columnTemplates});
   }

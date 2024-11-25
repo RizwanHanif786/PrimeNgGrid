@@ -1,5 +1,5 @@
 export interface Fields {
-    headerName: string;
-    field: string
-    type:string
+    headerName?: string;
+    field?: string
+    type?:string
   }

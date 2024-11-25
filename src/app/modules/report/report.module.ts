@@ -45,8 +45,7 @@ import {ChartModule} from 'primeng/chart';
     ContextMenuModule,
     CalendarModule,
     SliderModule,
-    ProgressBarModule,
-    
+    ProgressBarModule,    
     ToolbarModule,
     DialogModule,
     DragDropModule,
@@ -64,9 +63,7 @@ import {ChartModule} from 'primeng/chart';
     FileUploadModule,
     MultiSelectModule,
     PickListModule,
-    ChartModule
-    
-
+    ChartModule   
   ],
   providers:[MessageService, ConfirmationService, ReportDataService, DialogService]
   

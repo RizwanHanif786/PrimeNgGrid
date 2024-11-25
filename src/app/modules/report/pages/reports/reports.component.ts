@@ -96,12 +96,11 @@ export class ReportsComponent implements OnInit {
   }
 
   getRowsData() {
-    this.reportDataService.getProducts().then((data:any) => (this.products = data));
+    this.reportDataService.getProducts().then((data:Product[]) => (this.products = data));
   }
 
   onViewChange(list: any) {
     this.columnDefs = this.selectedTemplate;
-    console.log('this.columnDefs: ', this.columnDefs);
 
   }
 
@@ -173,7 +172,6 @@ export class ReportsComponent implements OnInit {
 
   saveProduct() {
     this.submitted = true;
-
     if (this.product.name!.trim()) {
       if (this.product.id) {
         this.products[this.findIndexById(this.product.id)] = this.product;
@@ -196,7 +194,6 @@ export class ReportsComponent implements OnInit {
       }
 
       this.products = [...this.products];
-      console.log('  this.products: ',   this.products);
       this.productDialog = false;
       this.product = {};
     }

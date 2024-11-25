@@ -44,6 +44,7 @@ export class ReportsComponent implements OnInit {
 
   setColumnsDefinition() {
     let settings = JSON.parse(localStorage.getItem('columnSettings') as any);
+    console.log('settings: ', settings);
     if (settings?.length) {
       this.columnDefs = settings;
     } else {
@@ -100,6 +101,7 @@ export class ReportsComponent implements OnInit {
 
   onViewChange(list: any) {
     this.columnDefs = this.selectedTemplate;
+    console.log('this.columnDefs: ', this.columnDefs);
 
   }
 
@@ -194,6 +196,7 @@ export class ReportsComponent implements OnInit {
       }
 
       this.products = [...this.products];
+      console.log('  this.products: ',   this.products);
       this.productDialog = false;
       this.product = {};
     }
@@ -284,7 +287,6 @@ export class ReportsComponent implements OnInit {
 
     dialogRef.onClose.subscribe((data) => {
       if(data) {
-        console.log('data: ', data);
         this.reportData = data;
 
       }
@@ -292,7 +294,9 @@ export class ReportsComponent implements OnInit {
     });
   }
 
-  applyFilterGlobal($event:any, stringVal:any) {
+  applyFilterGlobal($event: any, stringVal: any) {
+    console.log('$event: ', $event);
+    console.log('stringVal: ', stringVal);
     this.dt!.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
 }

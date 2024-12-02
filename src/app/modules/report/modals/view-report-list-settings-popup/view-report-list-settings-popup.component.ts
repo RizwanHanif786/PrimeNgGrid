@@ -71,6 +71,7 @@ export class ViewReportListSettingsPopupComponent implements OnInit {
     ];
     let settings = JSON.parse(localStorage.getItem('columnSettings') as any);
     if (settings?.length) {
+      console.log('settings: ', settings);
       this.visibleFields = settings;
       this.visibleFields.forEach((item) => [
         (this.availableFields = this.availableFields.filter(

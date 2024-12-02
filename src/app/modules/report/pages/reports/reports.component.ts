@@ -292,8 +292,6 @@ export class ReportsComponent implements OnInit {
   }
 
   applyFilterGlobal($event: any, stringVal: any) {
-    console.log('$event: ', $event);
-    console.log('stringVal: ', stringVal);
     this.dt!.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
 }

@@ -354,6 +354,7 @@ describe('Call Logs Feature', () => {
                     .type("test{enter}", { force: true });
 
                 cy.wait('@phoneBooks').then((interception: any) => {
+                    console.log('interception: ', interception);
                     if (interception.request.query.filter) {
                         addRequestAssertions(interception)
                     }

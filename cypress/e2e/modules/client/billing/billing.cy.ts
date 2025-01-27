@@ -44,6 +44,7 @@ describe("Products Feature", () => {
             };
 
             cy.wait("@refreshedProductsList").then((res) => {
+                console.log('res: ', res);
                 cy.get('[data-cy="products-search"]')
                     .should("be.visible")
                     .type("basic", { force: true });
@@ -56,6 +57,7 @@ describe("Products Feature", () => {
                     .click();
 
                 cy.wait("@products").then((interception: any) => {
+                    console.log('interception: ', interception);
                     if (interception.request.query.filter) {
                         addRequestAssertions(interception);
                     }

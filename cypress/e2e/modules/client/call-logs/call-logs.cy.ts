@@ -68,6 +68,7 @@ describe('Call Logs Feature', () => {
 
 
                 cy.wait('@callLogs').then((interception: any) => {
+                    console.log('interception: ', interception);
                     if (interception.request.query.filter) {
                         addRequestAssertions(interception)
                     }
@@ -91,10 +92,8 @@ describe('Call Logs Feature', () => {
 
             const addRequestAssertions = (interception: any) => {
                 const { startDate, endDate } = getCurrentDate()
-                console.log(startDate, endDate)
                 const decodedParams = JSON.parse(interception.request.query.filter);
                 const createdCondition = decodedParams.where.created.between;
-                console.log(createdCondition, 'createdCondition')
 
                 // Request Assertions
                 expect(decodedParams.limit).to.eq(20);
@@ -139,7 +138,6 @@ describe('Call Logs Feature', () => {
             cy.intercept('POST', '/api/v1/Reports/export_report*').as('exportReport');
             cy.get('[data-cy="call-logs-export"]').should('be.visible').click();
             cy.wait('@exportReport').then((interception: any) => {
-                console.log('interception: ', interception);
                 if (interception.request) {
                     const requestBody = interception.request.body;
                     expect(requestBody).to.include(`start_date=${startDate}`);
@@ -354,7 +352,6 @@ describe('Call Logs Feature', () => {
                     .type("test{enter}", { force: true });
 
                 cy.wait('@phoneBooks').then((interception: any) => {
-                    console.log('interception: ', interception);
                     if (interception.request.query.filter) {
                         addRequestAssertions(interception)
                     }
